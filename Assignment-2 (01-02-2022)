@@ -1,0 +1,36 @@
+// G.Rajesh - AdcGwk LabAsst
+
+#include<stdio.h>
+void call_by_value(int,int);
+void call_by_reference(int *x,int *y);
+void main()
+{
+    int a,b;
+    printf("Enter a,b values:");
+    scanf("%d%d",&a,&b);
+    printf("Before Swapping:");
+    printf("a=%d b=%d",a,b);
+    call_by_value(a,b);
+    printf("\nbefore swapping of call by reference");
+    printf("%d %d",a,b);
+    call_by_reference(&a,&b);
+}
+void call_by_value(int x,int y)
+{
+    int temp;
+    temp=x;
+    x=y;
+    y=temp;
+    printf("\nAfter Swapping using call by value:");
+    printf("a=%d b=%d",x,y);
+}
+void call_by_reference(int*x,int*y)
+{
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+    printf("\n After swapping using call by reference:");
+    printf("\n Value of x=%d \n",*x);
+    printf("\n Value of y=%d \n",*y);
+}
