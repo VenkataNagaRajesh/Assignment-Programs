@@ -1,0 +1,21 @@
+//G.Rajesh (AdcGwk Cs LabAsst)
+#include<stdio.h>
+#include<string.h>
+int main(){
+   
+   char ch[25];
+   int i;
+   printf("Enter the string: ");
+   scanf("%s",ch);
+ 
+   for(i=0;i<=strlen(ch);i++){
+      if(ch[i]>=65&&ch[i]<=90)
+         ch[i]=ch[i]+32;
+        else if(ch[i]>=97&&ch[i]<=122)
+        {
+            ch[i]=ch[i]-32;
+        }
+   }
+   printf("\nLower Case String is: %s",ch);
+   return 0;
+}
