@@ -1,0 +1,76 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct student{
+	char name[200];
+	int roll_number,sub1,sub2,sub3;
+	double total_marks;
+	float avg;
+	char grade[200];
+};
+
+
+int main()
+{
+	int i = 0, n;
+
+printf("enter the no of students");
+scanf("%d",&n);
+
+	struct student student[n];
+for(i=0;i<n;i++)
+{
+    printf("enter the no1");
+    scanf("%d",&student[i].roll_number);
+    printf("enter the name");
+    scanf("%s",student[i].name); 
+    printf("enter the subject1");
+    scanf("%d",&student[i].sub1); 
+    printf("enter the subject2");
+    scanf("%d",&student[i].sub2); 
+    printf("enter the subject3");
+    scanf("%d",&student[i].sub3);
+    
+   student[i].total_marks=student[i].sub1+student[i].sub2+student[i].sub3;
+   student[i].avg=student[i].total_marks/3;
+    
+    
+}
+    
+	printf("Student Records:\n\n");
+	for (i = 0; i < n; i++) {
+	  if(student[i].avg<50)
+    {
+        *student[i].grade='F';
+    }
+    else if(student[i].avg>=50 && student[i].avg<60)
+    {
+        *student[i].grade='D';
+    }
+    else if(student[i].avg>=60 && student[i].avg<70)
+    {
+        *student[i].grade='C';
+    }
+    else if(student[i].avg>=70 && student[i].avg<80)
+    {
+        *student[i].grade='B';
+    }
+    else if(student[i].avg>=80 && student[i].avg<90)
+    {
+        student[i].grade='A';
+    }
+    else
+    {
+        *student[i].grade="A+";
+    }
+		printf("\tName = %s\n", student[i].name);
+		printf("\tRoll Number = %d\n", student[i].roll_number);
+		printf("\tTotal Marks = %0.2f\n\n", student[i].total_marks);
+		printf("\tAvg = %0.5f\n\n",student[i].avg);
+		printf("\tGrade = %0.5s\n\n",student[i].grade);
+		
+	}
+
+	return 0;
+}
