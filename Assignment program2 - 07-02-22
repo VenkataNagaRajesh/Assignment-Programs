@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include <string.h>
+void main() {
+   char string[50] = "Naidu Rajesh x y z";
+   char * token = strtok(string, " ");
+   int i=1;
+   while( token != NULL ) {
+      char * subString=token;
+      int j=0;
+      while(subString[j] != '\0'){
+         int flag=(int)subString[j];
+         if(flag>=97 && flag<=122 && (flag+i)>122){
+            int subFlag=(flag-122)+i+96;
+            printf("%c",(char)subFlag);
+            j++;
+         }
+         else if(flag>=65 && flag<=90 && (flag+i)>90){
+            int subFlag=(flag-90)+i+64;
+            printf("%c",(char)subFlag);
+            j++;
+         }         
+         else{
+         printf("%c",(char)subString[j]+i);
+         j++;
+         }
+      }
+      printf( "\n" );
+      token = strtok(NULL, " ");
+      i++;
+   }
+}
